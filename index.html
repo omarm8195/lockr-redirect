@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #tiktok-toast {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: #000;
+      color: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      z-index: 1000;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Redirecting to the App Store...</h2>
+  <div id="tiktok-toast">🚨 Tap the 3 dots in the top-right and choose “Open in browser” to continue</div>
+
+  <script>
+    function isInTikTokWebView() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera;
+      return ua.includes('musical.ly') || ua.includes('BytedanceWebview');
+    }
+
+    if (isInTikTokWebView()) {
+      document.getElementById('tiktok-toast').style.display = 'block';
+    } else {
+      // Replace with your actual app link
+      window.location.href = "https://apps.apple.com/app/id6451374596";
+    }
+  </script>
+</body>
+</html>
