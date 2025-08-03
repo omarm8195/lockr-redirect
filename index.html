@@ -14,12 +14,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-    }
-
-    .arrow {
-      font-size: 64px;
-      margin-bottom: 20px;
-      transform: rotate(45deg);
+      position: relative;
     }
 
     #tiktok-toast {
@@ -33,16 +28,29 @@
       text-align: center;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
       max-width: 90%;
+      z-index: 10;
+    }
+
+    .arrow {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      font-size: 48px;
+      transform: rotate(45deg);
+      z-index: 100;
+      pointer-events: none;
     }
 
     @media (max-width: 480px) {
-      .arrow {
-        font-size: 48px;
-      }
-
       #tiktok-toast {
         font-size: 18px;
         padding: 22px 20px;
+      }
+
+      .arrow {
+        font-size: 40px;
+        top: 12px;
+        right: 12px;
       }
     }
   </style>
@@ -67,6 +75,3 @@
   </script>
 </body>
 </html>
-
-
-
