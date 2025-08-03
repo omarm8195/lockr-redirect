@@ -5,59 +5,52 @@
   <title>Lockr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: #ffffff;
       display: flex;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .arrow {
+      font-size: 64px;
+      margin-bottom: 20px;
+      transform: rotate(45deg);
     }
 
     #tiktok-toast {
-      display: none;
       background-color: #000;
       color: #fff;
       padding: 28px 24px;
       border-radius: 20px;
       font-size: 20px;
       font-weight: 600;
-      text-align: center;
-      max-width: 90%;
       line-height: 1.6;
+      text-align: center;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      position: relative;
+      max-width: 90%;
     }
 
-    .arrow {
-      position: absolute;
-      top: -80px;
-      right: -10px;
-      font-size: 64px;
-      transform: rotate(45deg);
-      color: #000;
-    }
-
-    @media (max-width: 400px) {
-      #tiktok-toast {
-        font-size: 18px;
-        padding: 20px;
-      }
-
+    @media (max-width: 480px) {
       .arrow {
         font-size: 48px;
-        top: -60px;
+      }
+
+      #tiktok-toast {
+        font-size: 18px;
+        padding: 22px 20px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="arrow">⬆️</div>
   <div id="tiktok-toast">
-    <div class="arrow">⬆️</div>
-    🚨 To download <strong>Lockr</strong>:<br>
+    🚨 <strong>To download Lockr:</strong><br>
     Tap the <strong>3 dots</strong> in the top-right,<br>
     then choose <strong>“Open in browser”</strong>
   </div>
@@ -68,9 +61,7 @@
       return ua.includes('musical.ly') || ua.includes('BytedanceWebview');
     }
 
-    if (isInTikTokWebView()) {
-      document.getElementById('tiktok-toast').style.display = 'block';
-    } else {
+    if (!isInTikTokWebView()) {
       window.location.href = "https://apps.apple.com/us/app/lockr-block-distractions/id6747994676";
     }
   </script>
